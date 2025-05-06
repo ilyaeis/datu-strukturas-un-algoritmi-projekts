@@ -1,1 +1,1 @@
-# atu-strukt-ras-un-algoritmi-projekts
+# datu-strukturas-un-algoritmi-projekts
