@@ -15,5 +15,5 @@
 - lekcija atšķiras no lietotāja pamatsaraksta (jo nav jēgas atkartoti apmēklēt tadas pašan nodarbības);
 - visas nodarbības tajā priekšmetā ir pieejamas apmeklēšanai, jeb neviena no nodarbībam nedeļas griezumā nepārklājas ar lietotāja pamatsarakstu (jo nav jegas tikai daļēji apgūt lekciju materiālu).
 
-  Ja lekcija neatbilst kaut vienam no kritērijiem, tā netiek atzīta par derīgu, savukārt, jā lekcija visiem kritērijiem atbilst, tā tiek ierakstīta teksta failā. Tad jau manuālā režīmā lietotājs vai nu izdzēš neinteresantas lekcijas, galu galā paliekot ar finala variantu, vai nerediģē sarakstu un vienkārši izvēlās vajadzīgo lekciju.
+Ja lekcija neatbilst kaut vienam no kritērijiem, tā netiek atzīta par derīgu, savukārt, jā lekcija visiem kritērijiem atbilst, tā tiek ierakstīta teksta failā. Tad jau manuālā režīmā lietotājs vai nu izdzēš neinteresantas lekcijas, galu galā paliekot ar finala variantu, vai nerediģē sarakstu un vienkārši izvēlās vajadzīgo lekciju.
 ### Kādas bibliotēkas tika izmantotas musu programmā un kāpēc?
