@@ -17,3 +17,13 @@
 
 Ja lekcija neatbilst kaut vienam no kritērijiem, tā netiek atzīta par derīgu, savukārt, jā lekcija visiem kritērijiem atbilst, tā tiek ierakstīta teksta failā. Tad jau manuālā režīmā lietotājs vai nu izdzēš neinteresantas lekcijas, galu galā paliekot ar finala variantu, vai nerediģē sarakstu un vienkārši izvēlās vajadzīgo lekciju.
 ### Kādas bibliotēkas tika izmantotas musu programmā un kāpēc?
+- Selenium lai emitet lietotaja uzvedibu ...
+- web scraping ...
+- rakstit teksta failā
+- varbut kadas citas, pagaidam nezinu. kad rakstisim pašu programmu, izvelesimies un tad ari šeit ierakstisim
+### Kādas datu struktūras tika izmantotas musu programmā un kāpēc?
+- dictionary lai saglabat vairakās dimencijās (nedeļas > dienas > laiki > lekcijas)
+- linked list lai vienā vietā attēlot visas derīgas lekcijas, kas notiek vienā laikā
+- varbut kadas citas, pagaidam nezinu. kad rakstisim pašu programmu, izvelesimies un tad ari šeit ierakstisim
+### Kopsavilkums
+Pagaidam nezinu, ko šeit ierakstit. Varetu saskaitit kopejo laika pateriņu projekta izstradei (ideja, readme, pats kods, gatavošanas prezentešanai). Varetu ari atkartot ka programma der visiem RTU studentiem un stradas visu laiku lidz nodarbibas.rtu.lv nenomainis lietotnes izkartojumu un strukturu. Nu un vel prikola pec pierakstit ka kaut kad varetu tadu pašu programmu uztaisit LU nodarbibam lai ari tur mekletu studiju iespejas
