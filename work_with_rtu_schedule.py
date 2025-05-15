@@ -91,7 +91,7 @@ def get_needed_programs(driver, start_id_number, end_id_number):
         EC.element_to_be_clickable((By.CSS_SELECTOR, program_button_selector))
     )
     program_button.click()
-    time.sleep(2)
+    time.sleep(1)
     
     extracted_programs = []
     id_prefix = "bs-select-1-"
@@ -101,7 +101,6 @@ def get_needed_programs(driver, start_id_number, end_id_number):
 
     for i in range(start_id_number, end_id_number + 1):
         current_id = f"{id_prefix}{i}"
-        print(f"Checking for element with ID: {current_id}")
         try:
             option_element = WebDriverWait(driver, 5).until( 
                 EC.presence_of_element_located((By.ID, current_id))
@@ -114,17 +113,9 @@ def get_needed_programs(driver, start_id_number, end_id_number):
                 "name": element_text
             }
             extracted_programs.append(program)
-            print(f"  Found and extracted text: '{program}'")
-        except TimeoutException:
-            print(f"  Element with ID {current_id} not found or not present within timeout.")
-        except NoSuchElementException:
-            print(f"  Could not find the text span within element ID {current_id}.")
+            print(f"Found and extracted text: '{program}'")
         except Exception as e:
             print(f"An error occurred while processing element ID {current_id}: {e}")
-
-    print("\n--- Finished extracting text from specified ID range ---")
-    print(f"Total elements processed in range: {end_id_number - start_id_number + 1}")
-    print(f"Successfully extracted text from {len(extracted_programs)} elements.")
 
     return extracted_programs
 
@@ -169,13 +160,17 @@ def get_rtu_schedule_lectures(driver, program_id, course_id, group_id):
     select = Select(group_select_element)
     select.select_by_visible_text(group_id)
     print(f"Group selected: {group_id}")
-
-    time.sleep(2)
+    
+    time.sleep(1)
+    
     day_container_selector = "td.fc-daygrid-day"
     print(f"Waiting for schedule day containers matching '{day_container_selector}' to load...")
-    WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, day_container_selector))
-    )
+    try:
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, day_container_selector))
+        )
+    except TimeoutException:
+        return all_lectures_by_day
     print("Schedule content appears to be loaded.")
 
     day_container_selector = "td.fc-daygrid-day"
@@ -230,5 +225,4 @@ def get_rtu_schedule_lectures(driver, program_id, course_id, group_id):
         else:
             print("  No events found in this day container.")
 
-    print("\n--- Finished Extracting Lectures from All Days ---")
     return all_lectures_by_day
