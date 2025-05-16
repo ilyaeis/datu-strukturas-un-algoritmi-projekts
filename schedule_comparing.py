@@ -3,48 +3,37 @@ import os
 import time 
 
 def parse_lecture(lecture):
+# attirit lekciju nosaukumus no liekiem parametriem
     lecture = lecture.replace("Lekc. ", "").replace("Lab.d. ", "").replace("Pr.d. ", "").replace("Lekc, Pr.d.", "").replace("Lekc,", "")
     lecture = lecture.split(",")[0].strip()
-    return lecture 
-
-def get_before_after_lecture_times(time):
-    time_to_number = [
-        "8:15 - 9:50",
-        "10:15 - 11:50",
-        "12:30 - 14:05",
-        "14:30 - 16:05",
-        "16:30 - 18:05",
-        "18:15 - 19:50"
-    ]
-    previous_time = None
-    next_time = None
-    if time in time_to_number:
-        index = time_to_number.index(time)
-        if index == 0:
-            next_time = time_to_number[index + 1]
-        elif index == len(time_to_number) - 1:
-            previous_time = time_to_number[index - 1]
-        else:
-            previous_time = time_to_number[index - 1]
-            next_time = time_to_number[index + 1]
-            
-    return previous_time, next_time        
+    return lecture        
 
 def get_main_lectures(main_schedule):
-    main_lectures = {} # {lecture: {date: [time, time], date: [time]}/False (validity)}
+# bija ---> main_schedule = {date: {time: {lecture_name}} jeb kalendars
+# bus ---> main_lectures = {lecture: {date: [time, time], date: [time]}/False (validity)} jeb sadalijums pec lekcijam
+
+    main_lectures = {}
+
+# cikls ar katru dienu (visas lekcijas - lectures) pec datumiem
     for date, lectures in main_schedule.items():
-        if not lectures:
+        if not lectures: # ja tai dienai nav lekciju
             continue
+
+# cikls ar lekciju (viena lekcija - lecture) pec laikiem
         for time, lecture in lectures.items():
-            if not lecture:
+            if not lecture: # ja tam laikam nav lekcijas
                 continue
+
+# izdzest liekus lekcijas nosaukuma elementus
             lecture = parse_lecture(lecture)
-            if lecture not in main_lectures:
+
+            if lecture not in main_lectures: # ja lekcijas ar tadu nosaukumu vel nav in main_lectures
                 main_lectures[lecture] = {}
-            if date not in main_lectures[lecture]:
+            if date not in main_lectures[lecture]: # ja lekcijas datums vel nav pievienots
                 main_lectures[lecture][date] = []
-            if time not in main_lectures[lecture][date]:
+            if time not in main_lectures[lecture][date]: # ja lekcijas laiks taja datuma vel nav pievienots
                 main_lectures[lecture][date].append(time)
+# atgriezt sarakstu ar lekcijam ka galveno parametri
     return main_lectures
 
 def algorithm_to_compare_main_schedule_to_additional_schedules(main_schedule, main_lectures, additional_schedule):
@@ -105,23 +94,3 @@ def update_additional_lectures(program_title, additional_lectures, main_schedule
                     if lecture not in additional_lectures[date][lecture_time]:
                         additional_lectures[date][lecture_time].append(lecture)
     return additional_lectures        
-                        
-if __name__ == "__main__":
-    json_files = [f for f in os.listdir('.') if f.endswith('.json')]
-    schedules = {}
-    for json_file in json_files:
-        if json_file != "main_schedule.json":
-            with open(json_file, 'r', encoding='utf-8') as f:
-                schedules[json_file.replace(".json", "")] = json.load(f)
-
-    with open("main_schedule.json", 'r', encoding='utf-8') as f:
-        main_schedule = json.load(f)
-        
-    main_schedule = main_schedule
-    print("Main schedule data:\n", json.dumps(main_schedule, indent=4))
-    main_lectures = get_main_lectures(main_schedule)
-    print("Main lectures:\n", json.dumps(main_lectures, indent=4))
-    additional_lectures = {} # {date: {time: [lectures]}}
-    for program_title, schedule in schedules.items():
-        additional_lectures = update_additional_lectures(program_title, additional_lectures, main_schedule, main_lectures, schedule)
-    print("Additional lectures:\n", json.dumps(additional_lectures, indent=4))
