@@ -8,22 +8,19 @@
 
   Tas ļoti atvieglo musu darbu, jo katru reizi manuāli pārskatīt katru studijas virzienu, gadu un grupu visās fakultātēs tiešām ir milzigs darbs. Savukārt musu programma ļauj lietotājam uzreiz dabūt filtrētu sarakstu tikai ar derīgiem lekciju variantiem. Tad jau manuālā režimā katrs lietotājs var iziet cauri salīdzinoši mazam sarakstam un ātri izvēlēties finala variantu.
 ### Kā darbojas musu programma?
-  Sākuma lietotājam ir jāievada savas grupas parametrus, lai programma varetu izgūt no nodarbibas.rtu.lv lietotnes pamatsarakstu. Tad programma automatiski pārmēklēs visu lietotni un atradis visas lekcijas, kuras atbilst šādiem kritērijiem:
+  Sākuma lietotājam ir jāievada nedaudz informācijas par savu grupu un mēklēšanas diapazonu, lai programma varetu izgūt no nodarbibas.rtu.lv lietotāja pamatsarakstu un veselu kaudzi ar papildus lekcijam. Tad programma automatiski pārmēklēs visas lekcijas un atradīs tadas, kuras atbilst šādiem kritērijiem:
 - lekcija netraucē pamatmācībam, kas ir papildus lekcijas laiks nesakrīt ar pamalekciju laikiem;
-- lekcija notiek uzreiz pirms vai pēc pamatlekcijam, lai litotājam neterētu lieko laiku gaidīšanai;
-- lekcijā piedalās vismaz 2 grupas (ja būtu tikai 1 grupa, visi zinātu, ka mes esam svešinieki);
 - lekcija atšķiras no lietotāja pamatsaraksta (jo nav jēgas atkartoti apmēklēt tadas pašan nodarbības);
 - visas nodarbības tajā priekšmetā ir pieejamas apmeklēšanai, jeb neviena no nodarbībam nedeļas griezumā nepārklājas ar lietotāja pamatsarakstu (jo nav jegas tikai daļēji apgūt lekciju materiālu).
 
-Ja lekcija neatbilst kaut vienam no kritērijiem, tā netiek atzīta par derīgu, savukārt, jā lekcija visiem kritērijiem atbilst, tā tiek ierakstīta teksta failā. Tad jau manuālā režīmā lietotājs vai nu izdzēš neinteresantas lekcijas, galu galā paliekot ar finala variantu, vai nerediģē sarakstu un vienkārši izvēlās vajadzīgo lekciju.
+  Ja lekcija neatbilst kaut vienam no kritērijiem, tā netiek atzīta par derīgu, savukārt, jā lekcija visiem kritērijiem atbilst, tā tiek ierakstīta Excel failā tabulas veidā. Tad jau manuālā režīmā lietotājs ar parasto filtru izmantošanu ātri un vienkārši var atlasīt pēc nedeļam (jo RTU ir 2 nedeļu grafiks), dienam, laikam, grupu skaita un nosaukuma, lai izvēlēties sev visatbilstošāko. Protams, tabulā tiek attēlota 1 grupa, kurai sarakstā ir šāda lekcija, lai lietotājs varētu pārbaudīt lekcijas esamību reālajā sarakstā un pārliecināties musu programmas pareizībā.
 ### Kādas bibliotēkas tika izmantotas musu programmā un kāpēc?
-- Selenium lai emitet lietotaja uzvedibu ...
-- web scraping ...
-- rakstit teksta failā
-- varbut kadas citas, pagaidam nezinu. kad rakstisim pašu programmu, izvelesimies un tad ari šeit ierakstisim
+- "selenium", lai emitēt lietotāja uzvēdību nodarbibas.rtu.lv mājaslapā;
+- "json", lai viegli un saprotami operet ar lekciju sarakstiem, kad tās vajag lasīt, it īpaši debugging procesā;
+- "time", lai veidot pauzes starp pieprasījumiem no tīmekļa vietnes un nepaaugstināt dažādu kļudu risku;
+- "pandas", lai sagatavot gala rezultātu tabulas formatā un ierakstīt to Excel failā.
 ### Kādas datu struktūras tika izmantotas musu programmā un kāpēc?
-- dictionary lai saglabat vairakās dimencijās (nedeļas > dienas > laiki > lekcijas)
-- linked list lai vienā vietā attēlot visas derīgas lekcijas, kas notiek vienā laikā
-- varbut kadas citas, pagaidam nezinu. kad rakstisim pašu programmu, izvelesimies un tad ari šeit ierakstisim
+- Galvenā ir "dictionary", lai saglabat datus vairakās dimencijās (nedeļas > dienas > laiki > lekcijas);
+- Protams tika izmantotas citas datu struktūras, piemēram, masīvi.
 ### Kopsavilkums
-Pagaidam nezinu, ko šeit ierakstit. Varetu saskaitit kopejo laika pateriņu projekta izstradei (ideja, readme, pats kods, gatavošanas prezentešanai). Varetu ari atkartot ka programma der visiem RTU studentiem un stradas visu laiku lidz nodarbibas.rtu.lv nenomainis lietotnes izkartojumu un strukturu. Nu un vel prikola pec pierakstit ka kaut kad varetu tadu pašu programmu uztaisit LU nodarbibam lai ari tur mekletu studiju iespejas
+  Programma der visiem RTU studentiem un stradās līdz brīdim, kad nodarbibas.rtu.lv nomainīs lietotnes izkārtojumu vai struktūru. Diemžēl, uz programmas izstrādi abiem musu tandema dalībniekiem bija jāpaterē kopā ap 25 stundam, kas ir diezgan daudz, kā arī pati programma aizņēm daudz laika īstenošanas procesā, tomēŗ tā tiešām ļoti atvieglo papildus lekciju mēklēšanas procesu, jo lietotājam vajag iedot programmai pavisam nedaudz informācijas un vienkārši uzgaidīt kādu laiku. Izstrādes procesā tika izmantotas zināšanas, kuras tika iegūtas RTU lekciju laikā, kā arī salīdzinoši neliela AI palīdzība.
