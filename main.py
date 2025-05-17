@@ -3,7 +3,6 @@ import schedule_comparing
 import work_with_additional_lectures
 
 from selenium import webdriver
-from selenium.webdriver.support import expected_conditions as EC
 import json
 
 # dabut visu vajadzigu salidzinasanai programmu nosaukumus (all_programs)
