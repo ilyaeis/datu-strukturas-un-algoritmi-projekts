@@ -1,6 +1,4 @@
 import json
-import os 
-import time 
 
 def parse_lecture(lecture):
 # attirit lekciju nosaukumus no liekiem parametriem
