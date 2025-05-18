@@ -16,11 +16,15 @@
   Ja lekcija neatbilst kaut vienam no kritērijiem, tā netiek atzīta par derīgu, savukārt, jā lekcija visiem kritērijiem atbilst, tā tiek ierakstīta Excel failā tabulas veidā. Tad jau manuālā režīmā lietotājs ar parasto filtru izmantošanu ātri un vienkārši var atlasīt pēc nedeļam (jo RTU ir 2 nedeļu grafiks), dienam, laikam, grupu skaita un nosaukuma, lai izvēlēties sev visatbilstošāko. Protams, tabulā tiek attēlota 1 grupa, kurai sarakstā ir šāda lekcija, lai lietotājs varētu pārbaudīt lekcijas esamību reālajā sarakstā un pārliecināties musu programmas pareizībā.
 ### Kādas bibliotēkas tika izmantotas musu programmā un kāpēc?
 - "selenium", lai emitēt lietotāja uzvēdību nodarbibas.rtu.lv mājaslapā;
-- "json", lai viegli un saprotami operet ar lekciju sarakstiem, kad tās vajag lasīt, it īpaši debugging procesā;
+- "json", lai saglabat datus .json failā un izmantot to talākai apstrādei;
 - "time", lai veidot pauzes starp pieprasījumiem no tīmekļa vietnes un nepaaugstināt dažādu kļudu risku;
-- "pandas", lai sagatavot gala rezultātu tabulas formatā un ierakstīt to Excel failā.
+- "datetime", lai operet ar datumiem un laikiem lekciju apstrādes un filtrēšanas procesā;
+- "pandas", lai sagatavot gala rezultātu tabulas formatā un ierakstīt to Excel failā;
+- "collections", lai izmantot ļoti ērtu "defaultdict" datu struktūru.
 ### Kādas datu struktūras tika izmantotas musu programmā un kāpēc?
-- Galvenā ir "dictionary", lai saglabat datus vairakās dimencijās (nedeļas > dienas > laiki > lekcijas);
+- Galvenā datu struktūra ir "dictionary", lai saglabat datus vairakās dimencijās, kārtojot pēc nedeļam, dienam, laikiem, lekciju nosaukumiem, grupam un citiem parametriem, jo dictionary stradā uz {key: value} struktūras, kas palīdz vieglāk sagalabāt datus un operēt ar tiem;
+- Kā arī bija izmantots "collections.defaultdict" jeb uzlabots "dictionary", lai ērtāk un vienkāršāk veidot dictionary struktūru un izvairīties no kļūsam;
+- "pandas.DataFrame", lai atvieglot tabulas veidošanas procesu un vieglāk parnest datus uz Excel failu;
 - Protams tika izmantotas citas datu struktūras, piemēram, masīvi.
 ### Kopsavilkums
-  Programma der visiem RTU studentiem un stradās līdz brīdim, kad nodarbibas.rtu.lv nomainīs lietotnes izkārtojumu vai struktūru. Diemžēl, uz programmas izstrādi abiem musu tandema dalībniekiem bija jāpaterē kopā ap 25 stundam, kas ir diezgan daudz, kā arī pati programma aizņēm daudz laika īstenošanas procesā, tomēŗ tā tiešām ļoti atvieglo papildus lekciju mēklēšanas procesu, jo lietotājam vajag iedot programmai pavisam nedaudz informācijas un vienkārši uzgaidīt kādu laiku. Izstrādes procesā tika izmantotas zināšanas, kuras tika iegūtas RTU lekciju laikā, kā arī salīdzinoši neliela AI palīdzība.
+  Programma der visiem RTU studentiem un stradās līdz brīdim, kad nodarbibas.rtu.lv nomainīs lietotnes izkārtojumu vai struktūru. Pati programma aizņēm daudz laika īstenošanas procesā, tomēŗ tā tiešām ļoti atvieglo papildus lekciju mēklēšanas procesu, jo lietotājam vajag iedot programmai pavisam nedaudz informācijas un vienkārši uzgaidīt kādu laiku. Izstrādes procesā tika izmantotas zināšanas, kuras tika iegūtas RTU lekciju laikā, kā arī salīdzinoši neliela AI palīdzība.
