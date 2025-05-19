@@ -19,11 +19,9 @@
 - "json", lai saglabat datus .json failā un izmantot to talākai apstrādei;
 - "time", lai veidot pauzes starp pieprasījumiem no tīmekļa vietnes un nepaaugstināt dažādu kļudu risku;
 - "datetime", lai operet ar datumiem un laikiem lekciju apstrādes un filtrēšanas procesā;
-- "pandas", lai sagatavot gala rezultātu tabulas formatā un ierakstīt to Excel failā;
-- "collections", lai izmantot ļoti ērtu "defaultdict" datu struktūru.
+- "pandas", lai sagatavot gala rezultātu tabulas formatā un ierakstīt to Excel failā.
 ### Kādas datu struktūras tika izmantotas musu programmā un kāpēc?
 - Galvenā datu struktūra ir "dictionary", lai saglabat datus vairakās dimencijās, kārtojot pēc nedeļam, dienam, laikiem, lekciju nosaukumiem, grupam un citiem parametriem, jo dictionary stradā uz {key: value} struktūras, kas palīdz vieglāk sagalabāt datus un operēt ar tiem;
-- Kā arī bija izmantots "collections.defaultdict" jeb uzlabots "dictionary", lai ērtāk un vienkāršāk veidot dictionary struktūru un izvairīties no kļūsam;
 - "pandas.DataFrame", lai atvieglot tabulas veidošanas procesu un vieglāk parnest datus uz Excel failu;
 - Protams tika izmantotas citas datu struktūras, piemēram, masīvi.
 ### Kopsavilkums
